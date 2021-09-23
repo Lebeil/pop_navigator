@@ -10,7 +10,7 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Center(
       child: ElevatedButton(
-        onPressed: alert,
+        onPressed: (()=> dialog('Bienvenue', 'Admirez tout ça')),
         child: const Text('Appuie !'),
         style: ElevatedButton.styleFrom(
           primary: Colors.teal,
@@ -60,6 +60,35 @@ class _BodyState extends State<Body> {
               child: const Text("Continuer", style: TextStyle(color: Colors.green)),
             ),
           ],
+        );
+      },
+    );
+  }
+
+  //SimpleDialog
+  Future<Null> dialog(String title, String desc) async {
+    return showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          title: Text(title, textScaleFactor: 1.4),
+          contentPadding: const EdgeInsets.all(10),
+          children: <Widget>[
+            Text(desc),
+            Container(height: 20),
+            ElevatedButton(
+              child: const Text("Ok"),
+              onPressed: () {
+                print("Appuyé!");
+                Navigator.pop(context);
+                },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.teal,
+                onPrimary: Colors.white,
+              )
+            )
+          ]
         );
       },
 
