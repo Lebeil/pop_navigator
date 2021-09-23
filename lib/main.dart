@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Test Pop-up & Navigator on Flutter',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ),
       home: const MyHomePage(title: 'Pop-up & Navigator on Flutter'),
     );

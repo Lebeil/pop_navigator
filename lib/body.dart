@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'nouvelle_page.dart';
+
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
@@ -10,7 +12,7 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Center(
       child: ElevatedButton(
-        onPressed: (()=> dialog('Bienvenue', 'Admirez tout ça')),
+        onPressed: versNouvellePage,
         child: const Text('Appuie !'),
         style: ElevatedButton.styleFrom(
           primary: Colors.teal,
@@ -93,6 +95,13 @@ class _BodyState extends State<Body> {
       },
 
     );
+  }
+
+  //redirect new page
+  void versNouvellePage() {
+    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+      return NouvellePage('La seconde page');
+    }));
   }
 
 }
