@@ -10,8 +10,8 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Center(
       child: ElevatedButton(
-        onPressed: pressed,
-        child: Text('Button'),
+        onPressed: snack,
+        child: const Text('Appuie !'),
         style: ElevatedButton.styleFrom(
           primary: Colors.teal,
           onPrimary: Colors.white,
@@ -24,9 +24,13 @@ class _BodyState extends State<Body> {
     );
   }
 
-  void pressed() {
-    setState(() {
-      print("on m'a appuyé dessus");
-    });
+  void snack() {
+    SnackBar snackBar = const SnackBar(
+      content: Text('Je suis une snackbar', textScaleFactor: 1.5),
+      duration: Duration(seconds: 5),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar); //Scaffold.of (old)
   }
+
 }
